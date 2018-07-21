@@ -227,28 +227,30 @@ Inducci\'on global sobre n
 \caption{Counting Sort}\label{selection}
 \begin{algorithmic}[1]
 \Procedure{countingSort}{$A,k$}
-	\State $B \gets [0...0]$ \Comment{arreglo de k+1 posiciones - $\mathcal{O}(k)$}
+	\State $B \gets [0,..,0]$ \Comment{arreglo de k+1 posiciones - $\mathcal{O}(k)$}
 	\For{\textbf{$i \gets 1$ to} $length(A)$} \Comment{cuento apariciones - $\mathcal{O}(n)$}
 		\State $B[A[i]]++$
 	\EndFor
-	\State $indexA \gets 0$
-	\For
+	\State $indexA \gets 1$
+	\For{\textbf{$i \gets 1$ to} $length(B)$} \Comment{inserto cantidad de apariciones - $\mathcal{O}(n+k)$}
+		\While{$B[i] > 0$} 
+			\State $A[indexA] \gets i$
+			\State $B[i]--$
+			\State $indexA++$
+		\EndWhile
+	\EndFor
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
 
 \subsection{Invariante:}
-\begin{itemize}
-	\item{A[1..i-1] son los m\'as chicos y est\'an ordenados}
-	\item{A[i..n] son los m\'as grandes}
-\end{itemize}
 
-\subsection{Peor caso: $\Theta (n^{2})$ - indedependiente al orden inicial}
-\subsection{Mejor caso: $\Theta (n^{2})$ - independiente al orden inicial}
-\subsection{Estable: S\'i}
-\subsection{In place: S\'i}
-\subsection{Swaps: $\Theta (n)$}
-\subsection{Si se corta, da un subarreglo ordenado: S\'i, la parte baja}
-\subsection{Insertar elementos en runtime: No}
+\subsection{Peor caso:}
+\subsection{Mejor caso:}
+\subsection{Estable:}
+\subsection{In place:}
+\subsection{Swaps:}
+\subsection{Si se corta, da un subarreglo ordenado:}
+\subsection{Insertar elementos en runtime:}
 
 \end{document}
